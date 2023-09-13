@@ -13,6 +13,7 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
 public class WordCount2 {
 
+    //Map
     public static class TokenizerMapper
             extends Mapper<Object, Text, Text, IntWritable>{
 
@@ -29,6 +30,7 @@ public class WordCount2 {
         }
     }
 
+    //Reduce
     public static class IntSumReducer
             extends Reducer<Text,IntWritable,Text,IntWritable> {
         private IntWritable result = new IntWritable();
@@ -45,6 +47,7 @@ public class WordCount2 {
         }
     }
 
+    //Job
     public static void main(String[] args) throws Exception {
         Configuration conf = new Configuration();
         Job job = Job.getInstance(conf, "word count");
